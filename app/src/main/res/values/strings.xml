@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Quotes</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="genius_is_one_percent_inspiration_and_ninety_nine_percent_perspiration">Genius is one percent inspiration and ninety-nine percent perspiration.</string>
+    <string name="the_greatest_glory_in_living_lies_not_in_never_falling_but_in_rising_every_time_we_fall">The greatest glory in living lies not in never falling, but in rising every time we fall</string>
+    <string name="next">NEXT</string>
+    <string name="bruce_wayne">Bruce Wayne</string>
+    <string name="quotes">Quotes</string>
+</resources>
