@@ -17,4 +17,10 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+    <style name="previousFloatingButton">
+        <item name="colorSecondary">@color/lightBlue</item>
+    </style>
+    <style name="nextFloatingButton">
+        <item name="colorSecondary">@color/lightBlue</item>
+    </style>
 </resources>

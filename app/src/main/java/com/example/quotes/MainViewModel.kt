@@ -5,11 +5,11 @@ import androidx.lifecycle.ViewModel
 import com.google.gson.Gson
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
+import kotlin.random.Random
 
 class MainViewModel(val context: Context):ViewModel(){
     private var quoteList :Array<Quotes>  = emptyArray()
-    private var index=0
-    
+    private var index= Random.nextInt(0,1000)
     init {
        quoteList=loadQuotesFromAssets()
     }
@@ -24,7 +24,7 @@ class MainViewModel(val context: Context):ViewModel(){
         return gson.fromJson(json,Array<Quotes>::class.java)
     }
 
-    fun getQuote()=quoteList[index]
+    fun getQuote(): Quotes =quoteList[index]
     fun nextQuote()=quoteList[++index]
     fun previousQuote()=quoteList[index--]
 }

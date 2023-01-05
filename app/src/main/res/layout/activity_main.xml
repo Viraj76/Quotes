@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="@string/quotes"
         android:textColor="@color/white"
+        android:textStyle="bold"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,15 +44,16 @@
             android:scaleX="-1"
             android:scaleY="-1"
             android:src="@drawable/ic_baseline_format_quote_24"
-            app:tint="#454545" />
+            app:tint="#FFFFFF" />
 
         <TextView
             android:id="@+id/tvText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#F8FBFD"
             android:text="@string/the_greatest_glory_in_living_lies_not_in_never_falling_but_in_rising_every_time_we_fall"
             android:textSize="20sp"
-            android:textStyle="italic" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvAuthor"
@@ -59,19 +61,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:paddingStart="10dp"
-            android:textStyle="bold"
             android:paddingEnd="10dp"
             android:text="@string/bruce_wayne"
-            android:textColor="#454545"
-            android:textSize="20sp" />
+            android:textColor="#D6DEE4"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabPrev"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|start"
-            android:backgroundTint="@color/teal_700"
+            app:tint="#FFFFFF"
+            android:background="@color/white"
             android:src="@drawable/ic_baseline_chevron_left_24"
+            android:theme="@style/nextFloatingButton"
             app:drawableStartCompat="@drawable/ic_baseline_chevron_left_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -81,20 +85,22 @@
             android:id="@+id/fabNext"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+            android:theme="@style/previousFloatingButton"
             android:tint="@color/white"
+            app:tint="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:backgroundTint="@color/teal_700"
             app:layout_constraintEnd_toEndOf="parent" />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:backgroundTint="@color/teal_700"
+        android:theme="@style/previousFloatingButton"
         android:clickable="true"
         android:foregroundTint="#FFF"
+        app:tint="#FFFFFF"
         android:onClick="onShare"
-        app:backgroundTint="#454545"
+
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
