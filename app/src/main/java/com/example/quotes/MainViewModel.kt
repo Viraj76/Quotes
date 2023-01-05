@@ -2,7 +2,9 @@ package com.example.quotes
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
+import kotlinx.coroutines.launch
 import java.nio.charset.Charset
 import java.nio.charset.StandardCharsets.UTF_8
 import kotlin.random.Random
@@ -10,8 +12,12 @@ import kotlin.random.Random
 class MainViewModel(val context: Context):ViewModel(){
     private var quoteList :Array<Quotes>  = emptyArray()
     private var index= Random.nextInt(0,1000)
+
     init {
-       quoteList=loadQuotesFromAssets()
+        viewModelScope.launch {
+            quoteList=loadQuotesFromAssets()
+        }
+
     }
     private fun loadQuotesFromAssets():Array<Quotes>{
         val inputStream=context.assets.open("quotes.json")
@@ -24,7 +30,7 @@ class MainViewModel(val context: Context):ViewModel(){
         return gson.fromJson(json,Array<Quotes>::class.java)
     }
 
-    fun getQuote(): Quotes =quoteList[index]
+    suspend fun getQuote(): Quotes =quoteList[index]
     fun nextQuote()=quoteList[++index]
     fun previousQuote()=quoteList[index--]
 }

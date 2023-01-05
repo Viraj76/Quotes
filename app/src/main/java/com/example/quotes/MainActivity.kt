@@ -3,10 +3,13 @@ package com.example.quotes
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings.Global
 import android.view.View
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainViewModel: MainViewModel
@@ -22,7 +25,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         mainViewModel= ViewModelProvider(this,MainViewModelFactory(application)).get(MainViewModel::class.java)
-        setQuote(mainViewModel.getQuote())
+        GlobalScope.launch {
+            setQuote(mainViewModel.getQuote())
+        }
+
 
         fabPrev=findViewById(R.id.fabPrev)
         fabNext=findViewById(R.id.fabNext)
@@ -49,7 +55,10 @@ class MainActivity : AppCompatActivity() {
     fun onShare(view: View) {
         val intent=Intent(Intent.ACTION_SEND)
         intent.setType(("text/plain"))
-        intent.putExtra(Intent.EXTRA_TEXT,mainViewModel.getQuote().text)
+        GlobalScope.launch {
+            intent.putExtra(Intent.EXTRA_TEXT,mainViewModel.getQuote().text)
+        }
+
         startActivity(intent)
     }
 }
