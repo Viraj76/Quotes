@@ -13,7 +13,6 @@ class MainViewModel(val context: Context):ViewModel(){
     init {
        quoteList=loadQuotesFromAssets()
     }
-
     private fun loadQuotesFromAssets():Array<Quotes>{
         val inputStream=context.assets.open("quotes.json")
         val size:Int=inputStream.available()
